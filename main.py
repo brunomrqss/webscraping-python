@@ -14,5 +14,14 @@ fetch_title = soup.find_all('a')
 
 fetch=[title.get('title') for i, title in enumerate(fetch_title) if i >= 55 and i % 2 != 0]
 
-for book in fetch:
-    print(f'\n{book}')
+precos=[]
+fetch_price = soup.find_all('p', class_='price_color')
+for i in fetch_price:
+    x = str(i.get_text()).split('Â')
+    precos.append(x[1])
+    
+print(precos)
+
+
+
+
