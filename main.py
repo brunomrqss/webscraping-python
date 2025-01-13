@@ -1,6 +1,7 @@
 import requests
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
+import csv
 
 
 url='https://books.toscrape.com/catalogue/category/books/history_32/index.html'
@@ -14,11 +15,9 @@ titles=[title.get('title') for i, title in enumerate(fetch_title) if i >= 55 and
 
 
 fetch_price = soup.find_all('p', class_='price_color')
+
 prices=[str(i.get_text()).split('Â£')[1] for i in fetch_price]
-
 prices = [*map(float, prices)]
-
-books = []
 
 rating = soup.find_all('p', class_='star-rating')
 rating_transformed=[*map(str, rating)]
@@ -41,6 +40,8 @@ for string in rating_transformed:
     if 'Five' in string:
         reviews.append(5)
     
+books = []
+
 for title, price, review in zip(titles, prices, reviews):
     dic={}
     dic['name']=title
@@ -48,7 +49,16 @@ for title, price, review in zip(titles, prices, reviews):
     dic['rating']=review
     books.append(dic)
 
-print(books[2])
+avg_prices = sum(prices)/len(prices)
+print(f'O preço médio dos livros é de R${avg_prices:.2f}')
+avg_reviews = sum(reviews)/len(reviews)
+print(f'A média de avaliações entre os livros é de {avg_reviews:.0f} estrelas')
+qnt_books=len(titles)
+print(f'Esta categoria possui {qnt_books} livros')
 
-
-
+with open('work_data.csv', 'w', newline='') as file:
+    writer = csv.writer(file)
+    writer.writerow(['title', 'prices', 'rating'])
+    
+    for title, price, review in zip(titles, prices, reviews):
+        writer.writerow([title, price, review])
