@@ -56,6 +56,7 @@ print(f'A média de avaliações entre os livros é de {avg_reviews:.0f} estrela
 qnt_books=len(titles)
 print(f'Esta categoria possui {qnt_books} livros')
 
+
 with open('work_data.csv', 'w', newline='') as file:
     writer = csv.writer(file)
     writer.writerow(['title', 'prices', 'rating'])
