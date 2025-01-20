@@ -56,15 +56,16 @@ print(f'The avg of rating is {avg_reviews:.0f} stars')
 qtt_books=len(titles)
 print(f'This category has {qtt_books} books')
 
-raw_path=os.makedirs("raw", exist_ok=True)
+os.makedirs('data/', exist_ok=True)
 
 def write_to_csv():
-    with open("data.csv", "w", newline="") as file:
+    with open("data/data.csv", "w", newline="") as file:
         writer = csv.writer(file)
         writer.writerow(["title", "prices", "rating"])
         
         for title, price, review in zip(titles, prices, reviews):
             writer.writerow([title, price, review])
-    
+
+
 if __name__ == "__main__":
     write_to_csv()
