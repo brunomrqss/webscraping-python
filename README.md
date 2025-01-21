@@ -14,9 +14,15 @@ Este documento apresenta a realização do projeto de webscraping que teve como 
 
 O projeto foi desenvolvido utilizando paradigma de programação funcional, onde cada função tem um papel crucial e segue uma lógica de execução afim de deixar o código com uma maior taxa de manutenibilidade.
 
-##### Estrutura do arquivo main.py
+1. Criação do ambiente virtual .venv
 
-A princípio, inicia-se importando as bibliotecas e dependências necessárias para execução do projeto.
+2. Instalação das bibliotecas e dependencias dentro do ambiente virtual
+
+3. Criação do arquivo requirements.txt
+
+4. Estruturação do código e do arquivo main.py
+
+A princípio, iniciou-se a importação das bibliotecas e dependências necessárias para execução do projeto.
 
 ```python
 import requests
