@@ -22,7 +22,7 @@ O projeto foi desenvolvido utilizando paradigma de programação funcional, onde
 
 4. Estruturação do código e do arquivo main.py
 
-A princípio, iniciou-se a importação das bibliotecas e dependências necessárias para execução do projeto.
+A princípio, iniciou-se a importação das bibliotecas e dependências instaladas no início do projeto.
 
 ```python
 import requests
